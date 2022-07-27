@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+<!--准备好一个容器-->
+<div id="root">
+    <h1>Hello {{message}}</h1>
+</div>
+
+<div class="child">
+    <h1>你好 {{name.toUpperCase()}}</h1>
+</div>
+<script>
+    //关闭开发提示
+    Vue.config.productionTip = false
+
+    //创建vue实例
+    const vm = new Vue({
+        el: "#root",//el 用于指定当前vue实例为哪个容器
+        data: {
+            message: "123"
+        },
+    })
+
+
+    let vm2 = new Vue({
+        el: ".child",//el 用于指定当前vue实例为哪个容器
+        data: {
+            name: "zy"
+        },
+    });
+
+
+</script>
+</body>
+</html>
