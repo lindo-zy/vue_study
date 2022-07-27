@@ -8,30 +8,60 @@
 <body>
 <!--准备好一个容器-->
 <div id="root">
+    <h1>插值语法</h1>
     <h1>Hello {{message}}</h1>
+    <h1>指令语法</h1>
+    <a v-bind:href="url">点击跳转</a>
+    <a :href="url">点击跳转2</a>
 </div>
 
 <div class="child">
-    <h1>你好 {{name.toUpperCase()}}</h1>
+    <h1>数据绑定</h1>
+    <input :value="name" type="text">
+    <h1>双向数据绑定</h1>
+    <input type="text" v-model:value="name">
+    <input type="text" v-model="name">
+    <!--v-model只能用于表单类-->
 </div>
 <script>
     //关闭开发提示
-    Vue.config.productionTip = false
+    Vue.config.productionTip = false;
+
 
     //创建vue实例
     const vm = new Vue({
-        el: "#root",//el 用于指定当前vue实例为哪个容器
+        el: '#root',//el 用于指定当前vue实例为哪个容器
         data: {
-            message: "123"
-        },
-    })
+            message: '123',
+            url: 'https://www.baidu.com'
+        }
+    });
 
 
+    //组件式写法
     let vm2 = new Vue({
-        el: ".child",//el 用于指定当前vue实例为哪个容器
-        data: {
-            name: "zy"
+        data() {
+            return {
+                name: 'zy'
+            };
+        }
+    }).$mount('.child');
+
+    let person = {
+        'name': 'zy',
+        'age': 18
+    };
+    let num = 10;
+    //类似python的init
+    Object.defineProperty(person, 'age', {
+        // value: 18,
+        // writable: false,
+        get() {
+            return num;
         },
+        set(value) {
+            num = value;
+        }
     });
 
 
