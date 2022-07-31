@@ -23,6 +23,12 @@
     <input type="text" v-model="name">
     <!--v-model只能用于表单类-->
 </div>
+
+
+<div id="app2">
+    <h2>学校名称：{{name}}</h2>
+    <h2>学校地址：{{address}}</h2>
+</div>
 <script>
     //关闭开发提示
     Vue.config.productionTip = false;
@@ -64,6 +70,31 @@
         }
     });
 
+
+    let obj = {x: 100};
+    let obj2 = {y: 200};
+
+    Object.defineProperty(obj2, 'x', {
+        get() {
+            return obj.x;
+        },
+        set(value) {
+            obj.x = value;
+        }
+    });
+
+
+    let data = {
+        'name': '四川大学',
+        'address': '成都'
+    };
+
+    let vm3 = new Vue({
+        el: '#app2',
+        data() {
+            return data;
+        }
+    });
 
 </script>
 </body>
