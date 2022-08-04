@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="app">
+    <span>{{name}}</span>
+    <span>{{age}}</span>
+    <span>{{fullName}}</span>
+</div>
+
+</body>
+<style>
+    span {
+        margin: 10px;
+        padding: 20px;
+    }
+</style>
+
+<script>
+    Vue.config.productionTip = false;
+
+    let vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                'name': 'zy',
+                'age': 20
+            };
+        },
+        computed: {
+            // fullName: {
+            //     // 当有人读取属性时，返回这个值
+            //     get() {
+            //         return this.name + '-' + this.age;
+            //     },
+            //     set(value) {
+            //         this.name = value;
+            //         this.age = 28;
+            //     }
+            // }
+            // 简写,仅支持get方法简写
+            fullName() {
+                return this.name + '-' + this.age;
+            }
+        }
+
+    });
+
+</script>
+</html>

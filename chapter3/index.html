@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="app">
+    <h2>今日天气{{info}}</h2>
+    <button @click="change">切换天气</button>
+</div>
+
+</body>
+<style>
+    span {
+        margin: 10px;
+        padding: 20px;
+    }
+</style>
+
+<script>
+    Vue.config.productionTip = false;
+
+    let vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                'isHot': true
+            };
+        },
+        computed: {
+            info() {
+                return this.isHot ? '热' : '冷';
+            }
+        }
+
+
+    });
+
+</script>
+</html>
