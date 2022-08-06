@@ -33,6 +33,11 @@
             info() {
                 return this.isHot ? '热' : '冷';
             }
+        },
+        methods: {
+            change(event) {
+                this.isHot = !this.isHot;
+            }
         }
 
 
