@@ -39,8 +39,25 @@
             change(event) {
                 this.isHot = !this.isHot;
             }
+        },
+        //监测这个数据变化，没有return
+        watch: {
+            // isHot: {
+            //     handler(newValue, oldValue) {
+            //         console.log('isHot修改了');
+            //     }
+            // }
+            isHot(newValue, oldValue) {
+                console.log('isHot修改了');
+            }
         }
     });
+    // vm.$watch('isHot', {
+    //         handler(newValue, oldValue) {
+    //             console.log('isHot修改了');
+    //         }
+    //     }
+    // );
 
 </script>
 </html>
